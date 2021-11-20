@@ -1,6 +1,5 @@
 const cloneTemplateAssets = require('./cloneTemplateAssets.js');
 const fs = require('@danielcobo/fs');
-const path = require('path');
 
 beforeEach(async function () {
   const mockPaths = [

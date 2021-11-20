@@ -7,7 +7,10 @@ module.exports = async function cloneTemplateAssets(tree, toPath) {
   const assetPaths = micromatch(tree.files, globs, { dot: true });
   return await Promise.all(
     assetPaths.map(async function (assetPath) {
-      return fs.clone(assetPath, path.join(toPath, assetPath.replace()));
+      return fs.clone(
+        assetPath,
+        path.join(toPath, assetPath.slice(tree.root[0].length))
+      );
     })
   );
 };
